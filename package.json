@@ -1,0 +1,27 @@
+{
+  "name": "react-falcor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enderv/react-falcor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enderv/react-falcor/issues"
+  },
+  "homepage": "https://github.com/enderv/react-falcor#readme",
+  "devDependencies": {
+    "babel-loader": "^6.2.0",
+    "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "falcor": "^0.1.15",
+    "react": "^0.14.5"
+  }
+}
