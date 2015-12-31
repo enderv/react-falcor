@@ -21,6 +21,7 @@
     "webpack": "^1.12.9"
   },
   "dependencies": {
+    "babel-core": "^6.3.26",
     "falcor": "^0.1.15",
     "react": "^0.14.5"
   }
