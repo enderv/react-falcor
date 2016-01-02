@@ -1,15 +1,35 @@
 const React = require('react');
+//Using helper method to get ref syntax right
+const $ref = falcor.Model.ref;
 
+//Using reference even though that is normally done on server!!
 const model = new falcor.Model({
   cache: {
+    ingredientsById: {
+      1:{
+        name:"Flour",
+        description:"White and Powdery"
+      },
+      2:{
+        name:"Chocolate Chips",
+        description: "Delicious"
+      },
+    },
     recipes:[
       {
         name: "Cookies",
-        instructions: "Mix and bake"
+        instructions: "Mix and bake",
+        ingredients:[
+          $ref("ingredientsById[1]"),
+          $ref("ingredientsById[2]")
+        ]
       },
       {
         name: "Brownies",
-        instructions: "Also bake them"
+        instructions: "Also bake them",
+        ingredients:[
+          $ref("ingredientsById[1]")
+        ]
       }
     ]
   }
@@ -17,7 +37,7 @@ const model = new falcor.Model({
 
 //Only grab exactly what you need!!
 //Built to grab small pieces!
-model.get('recipes[0..1]["name","instructions"]')
+model.get('recipes[0..1].ingredients[0..10]["name","description"]')
   .then(data => {
     console.log(data);
   })
