@@ -22,14 +22,16 @@ const model = new falcor.Model({
         ingredients:[
           $ref("ingredientsById[1]"),
           $ref("ingredientsById[2]")
-        ]
+        ],
+        authors :{ $type:"atom", value:["Bob","Chris","Other Guy"]}
       },
       {
         name: "Brownies",
         instructions: "Also bake them",
         ingredients:[
           $ref("ingredientsById[1]")
-        ]
+        ],
+        authors : { $type:"atom", value:["Jim","Tom"]}
       }
     ]
   }
@@ -37,7 +39,7 @@ const model = new falcor.Model({
 
 //Only grab exactly what you need!!
 //Built to grab small pieces!
-model.get('recipes[0..1].ingredients[0..10]["name","description"]')
+model.get('recipes[0..1].ingredients[0..10]["name","description"]', 'recipes[0..1]["name","instructions","authors"]')
   .then(data => {
     console.log(data);
   })
