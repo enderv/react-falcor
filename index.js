@@ -48,7 +48,9 @@ model.get('recipes[0..1].ingredients[0..10]["name","description"]', 'recipes[0..
 
 const App = React.createClass({
   render() {
-    <div><RecipeList/ ></div>
+    return (
+    <div><RecipeList recipes={ [ { "name":"Brownies", "instructions": "Bake", "ingredients" : ["one","two"]} ]}/ ></div>
+    );
   }
 });
 
@@ -56,7 +58,7 @@ const RecipeList = React.createClass({
   render() {
     return (
       <div>
-        {this.props.recipes.map( receipe => {
+        {this.props.recipes.map( recipe => {
           return (
             <Recipe {...recipe} />
           );
@@ -70,7 +72,7 @@ const Recipe = React.createClass({
   render(){
     return (
       <div>
-        <Title title={this.props.title}/>
+        <Name name={this.props.name}/>
         <Instructions instructions={this.props.instructions}/>
         <Ingredients ingredients={this.props.ingredients}/>
       </div>
@@ -78,10 +80,10 @@ const Recipe = React.createClass({
   }
 });
 
-const Title = React.createClass({
+const Name = React.createClass({
   render() {
     return (
-      <h1>{this.props.title}</h1>
+      <h1>{this.props.name}</h1>
     )
   }
 });
