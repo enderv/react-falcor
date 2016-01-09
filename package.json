@@ -23,6 +23,7 @@
   "dependencies": {
     "babel-core": "^6.3.26",
     "falcor": "^0.1.15",
+    "lodash": "^3.10.1",
     "react": "^0.14.5"
   }
 }
