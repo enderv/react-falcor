@@ -7,37 +7,8 @@ const _ = require('lodash');
 
 //Using reference even though that is normally done on server!!
 const model = new falcor.Model({
-  cache: {
-    ingredientsById: {
-      1:{
-        name:"Flour",
-        description:"White and Powdery"
-      },
-      2:{
-        name:"Chocolate Chips",
-        description: "Delicious"
-      },
-    },
-    recipes:[
-      {
-        name: "Cookies",
-        instructions: "Mix and bake",
-        ingredients:[
-          $ref("ingredientsById[1]"),
-          $ref("ingredientsById[2]")
-        ],
-        authors :{ $type:"atom", value:["Bob","Chris","Other Guy"]}
-      },
-      {
-        name: "Brownies",
-        instructions: "Also bake them forver!!!!!",
-        ingredients:[
-          $ref("ingredientsById[1]")
-        ],
-        authors : { $type:"atom", value:["Jim","Tom"]}
-      }
-    ]
-  }
+  source: new falcor.HttpDataSource('./model.json'),
+
 });
 
 //Only grab exactly what you need!!
